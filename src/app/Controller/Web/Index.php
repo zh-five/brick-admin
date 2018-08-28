@@ -16,7 +16,7 @@ class Index extends ControllerWeb {
      * @throws \Brick\Core\Exceptions\ViewException
      */
     public function indexAction() {
-        $this->display('web/index/index.phtml', [
+        $this->display('index/index.phtml', [
             'date' => date('Y-m-d H:i:s'),
         ]);
     }

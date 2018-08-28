@@ -1,4 +1,28 @@
-<h1>恭喜你,brick框架已经安装成功</h1>
-<p>项目主页:<a href="https://github.com/zh-five/brick" target="_blank">https://github.com/zh-five/brick</a></p>
-<p>欢迎反馈问题或提交建议需求</p>
-<P>date:<span><?php echo $date; ?></span></P>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php $this->display('block/head.phtml', $_arr_tpl_var);?>
+</head>
+
+<?php $this->display('block/header.phtml', $_arr_tpl_var);?>
+
+
+        
+        
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="alert alert-info">
+                    Welcome in the <strong>Unicorn Admin Theme</strong>. Don't forget to check all the pages!
+                    <a href="#" data-dismiss="alert" class="close">×</a>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        
+
+
+
+
+<?php $this->display('block/footer.phtml', []);?>

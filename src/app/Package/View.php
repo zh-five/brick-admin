@@ -13,6 +13,6 @@ use Brick\Core\ViewAbstract;
 class View extends ViewAbstract{
 
     protected function __construct() {
-        $this->_tpl_dir = __DIR__.'/../view';
+        $this->_tpl_dir = __DIR__.'/../view/web';
     }
 }
