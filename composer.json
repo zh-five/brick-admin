@@ -1,0 +1,30 @@
+{
+    "name": "zh-five\/brick-admin",
+    "description": "基于brick php框架的后台系统组件. 包含用户管理和权限管理功能",
+    "type": "brick",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Five",
+            "email": "five@v5ip.com"
+        }
+    ],
+    "require": {
+        "zh-five\/brick": "dev-master",
+        "zh-five/fivedb": "^0.0.1"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https:\/\/github.com\/zh-five\/brick"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "src\/app\/PackageInit.php"
+        ],
+        "psr-4": {
+            "Five\\Admin\\": "src\/app\/"
+        }
+    }
+}

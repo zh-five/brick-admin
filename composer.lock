@@ -1,0 +1,93 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "7d55dd92b5d863adc9f1129d31ce634c",
+    "packages": [
+        {
+            "name": "zh-five/brick",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zh-five/brick.git",
+                "reference": "07f4a60cfa4fcfced9917cc25c7555c2ae04eb94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zh-five/brick/zipball/07f4a60cfa4fcfced9917cc25c7555c2ae04eb94",
+                "reference": "07f4a60cfa4fcfced9917cc25c7555c2ae04eb94",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Brick\\": "src/framework/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Five",
+                    "email": "five@v5ip.com"
+                }
+            ],
+            "description": "一个可以搭积木的php框架",
+            "support": {
+                "source": "https://github.com/zh-five/brick/tree/master",
+                "issues": "https://github.com/zh-five/brick/issues"
+            },
+            "time": "2018-08-28T08:11:37+00:00"
+        },
+        {
+            "name": "zh-five/fivedb",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zh-five/fivedb.git",
+                "reference": "e77610ea52d38129284c5269b6e87fffaa47eadc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zh-five/fivedb/zipball/e77610ea52d38129284c5269b6e87fffaa47eadc",
+                "reference": "e77610ea52d38129284c5269b6e87fffaa47eadc",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Five",
+                    "email": "five@v5ip.com"
+                }
+            ],
+            "description": "一个基于pdo封装的数据库操作类, 支持mysql和sqlite",
+            "time": "2017-12-30T11:46:17+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "zh-five/brick": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
