@@ -6,7 +6,7 @@
     padding: 0;
     width: 20px;
     height: 20px;
-    background: url("http://demo.bootstrap-hunter.com/unicorn/css/icheck/flat/blue.png") no-repeat;
+    background: url("blue.png") no-repeat;
     border: none;
     cursor: pointer;
 }
@@ -46,7 +46,7 @@
        only screen and (min-device-pixel-ratio: 1.5) {
     .icheckbox_flat-blue,
     .iradio_flat-blue {
-        background-image: url("http://demo.bootstrap-hunter.com/unicorn/css/icheck/flat/blue@2x.png");
+        background-image: url("blue@2x.png");
         -webkit-background-size: 176px 22px;
         background-size: 176px 22px;
     }

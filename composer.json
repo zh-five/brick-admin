@@ -11,7 +11,8 @@
     ],
     "require": {
         "zh-five\/brick": "dev-master",
-        "zh-five/fivedb": "^0.0.1"
+        "zh-five/fivedb": "^0.0.1",
+        "php": ">=5.4"
     },
     "repositories": [
         {
