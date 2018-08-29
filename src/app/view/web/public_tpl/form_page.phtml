@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php $this->display('block/head.phtml', $_arr_tpl_var); ?>
+</head>
+
+<?php $this->display('block/header.phtml', $_arr_tpl_var); ?>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="widget-box">
+
+                <div class="widget-content nopadding">
+                    <form action="<?php echo $form_url;?>" onsubmit="return S.submit(this)" method="post" class="form-horizontal">
+                        <?php $this->display('block/input.phtml', ['form_inputs' => $form_inputs, 'form_data' => $form_data]); ?>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-xm">保 存</button>
+                            <button type="reset" class="btn btn-default btn-xm">重 置</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    var S = {
+        submit:function(em){
+            var fm = $(em);
+            
+            $.post(fm.attr('action'), fm.serialize(), function(j){
+                alert(j.msg);
+                if (j.code == 0 && typeof j.data == 'object' && typeof j.data.jump_url == 'string') {
+                    window.location.href = j.data.jump_url;
+                }
+            });
+            
+            return false;
+        }
+    }
+</script>
+
+<?php $this->display('block/footer.phtml', []); ?>
+
+

@@ -8,11 +8,27 @@
 
 namespace Five\Admin\Package;
 
+use Brick\App;
 
 class Handler {
 
-    public static function error($e) {
-        echo "package\n";
-        print_r($e);
+    /**
+     * 错误处理
+     * @param \Exception $e
+     */
+    public static function error(\Exception $e) {
+        $req = App::getInstance()->getRequest();
+        
+        $action_name = $req->getActionName();
+        if ('aj_' === substr($action_name, 0, 3)) {
+            header('Content-type: application/json');
+            echo json_encode([
+                'code' => $e->getCode(),
+                'msg'  => $e->getMessage(),
+            ]);
+        } else {
+            print_r($e);
+        }
+
     }
 }

@@ -20,4 +20,5 @@ class Index extends ControllerWeb {
             'date' => date('Y-m-d H:i:s'),
         ]);
     }
+    
 }

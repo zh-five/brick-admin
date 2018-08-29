@@ -52,6 +52,7 @@ class Controller extends ControllerAbstract {
         //是否格式化json
         $pretty = $this->getParam('GET', 'pretty', 0) ? JSON_PRETTY_PRINT : 0;
 
+        header('Content-type: application/json');
         echo json_encode($json, JSON_UNESCAPED_UNICODE|$pretty);
     }
 }

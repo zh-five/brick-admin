@@ -1,95 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php $this->display('block/head.phtml', $_arr_tpl_var);?>
+    <?php $this->display('block/head.phtml', $_arr_tpl_var); ?>
 </head>
 
-<?php $this->display('block/header.phtml', $_arr_tpl_var);?>
-        
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="widget-box">
-                        
-                        <div class="widget-content nopadding">
-                            <form action="#" method="post" class="form-horizontal">
-                                
-                                <div class="form-group">
-                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">密码 password</label>
-                                    <div class="col-sm-9 col-md-9 col-lg-10">
-                                        <input type="password" class="form-control input-sm" />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">文本框 text</label>
-                                    <div class="col-sm-9 col-md-9 col-lg-10">
-                                        <input type="text" class="form-control input-sm" placeholder="This is a placeholder..." readonly />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">Select input</label>
-                                    <div class="col-sm-9 col-md-9 col-lg-10">
-                                        <select>
-                                            <option>First option</option>
-                                            <option>Second option</option>
-                                            <option>Third option</option>
-                                            <option>Fourth option</option>
-                                            <option>Fifth option</option>
-                                            <option>Sixth option</option>
-                                            <option>Seventh option</option>
-                                            <option>Eighth option</option>
-                                        </select>
-                                    </div>
-                                </div>
+<?php $this->display('block/header.phtml', $_arr_tpl_var); ?>
 
-                                <div class="form-group">
-                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">单选框 radio</label>
-                                    <div class="col-sm-9 col-md-9 col-lg-10">
-                                        <label><input type="radio" name="radio" value="11" checked/> Checked</label>
-                                        <label><input type="radio" name="radio" value="22" /> Unchecked</label>
-                                    </div>
-                                </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="widget-box">
 
-                                <div class="form-group">
-                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">复选框 checkbox</label>
-                                    <div class="col-sm-9 col-md-9 col-lg-10">
-                                        <label><input type="checkbox" name="checkboxes" value="1" checked /> Checked</label>
-                                        <label><input type="checkbox" name="checkboxes" value="2" /> Unchcked</label>
-                                        <label class="disabled"><input type="checkbox" name="checkboxes" checked disabled /> Checked disabled</label>
-                                        <label class="disabled"><input type="checkbox" name="checkboxes" disabled /> Unchecked disabled</label>
-                                    </div>
-                                </div>
+                <div class="widget-content nopadding">
+                    <form action="#" method="post" class="form-horizontal">
 
-                                <div class="form-group">
-                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">Date picker</label>
-                                    <div class=" col-sm-9 col-md-9 col-lg-10">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <input type="text" data-date="12-02-2012" data-date-format="dd-mm-yyyy" value="12-02-2012" class="datepicker form-control input-sm" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">文本域 textarea</label>
-                                    <div class="col-sm-9 col-md-9 col-lg-10">
-                                        <textarea rows="5" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-actions">
-                                    <button type="submit" class="btn btn-primary btn-xm">保 存</button> 
-                                    <button type="reset" class="btn btn-default btn-xm">重 置</button> 
-                                </div>
-                            </form>
+                        <div class="form-group col-md-6">
+                            <label class="col-sm-3 col-md-3 col-lg-2 control-label">密码 password</label>
+                            <div class="col-sm-9 col-md-9 col-lg-10">
+                                <input type="password" class="form-control input-sm"/>
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group col-md-6">
+                            <label class="col-sm-3 col-md-3 col-lg-2 control-label">文本框 text</label>
+                            <div class="col-sm-9 col-md-9 col-lg-10">
+                                <input type="text" class="form-control input-sm" placeholder="This is a placeholder..."
+                                       readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="col-sm-3 col-md-3 col-lg-2 control-label">Select input</label>
+                            <div class="col-sm-9 col-md-9 col-lg-10">
+                                <select>
+                                    <option>First option</option>
+                                    <option>Second option</option>
+                                    <option>Third option</option>
+                                    <option>Fourth option</option>
+                                    <option>Fifth option</option>
+                                    <option>Sixth option</option>
+                                    <option>Seventh option</option>
+                                    <option>Eighth option</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="col-sm-3 col-md-3 col-lg-2 control-label">单选框 radio</label>
+                            <div class="col-sm-9 col-md-9 col-lg-10">
+                                <label><input type="radio" name="radio" value="11" checked/> Checked</label>
+                                <label><input type="radio" name="radio" value="22"/> Unchecked</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="col-sm-3 col-md-3 col-lg-2 control-label">复选框 checkbox</label>
+                            <div class="col-sm-9 col-md-9 col-lg-10">
+                                <label><input type="checkbox" name="checkboxes" value="1" checked/> Checked</label>
+                                <label><input type="checkbox" name="checkboxes" value="2"/> Unchcked</label>
+                                <label class="disabled"><input type="checkbox" name="checkboxes" checked disabled/>
+                                    Checked disabled</label>
+                                <label class="disabled"><input type="checkbox" name="checkboxes" disabled/> Unchecked
+                                    disabled</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="col-sm-3 col-md-3 col-lg-2 control-label">Date picker</label>
+                            <div class=" col-sm-9 col-md-9 col-lg-10">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <input type="text"
+                                               data-date="12-02-1012" 
+                                               data-date-format="dd-mm-yyyy" 
+                                               value=""
+                                               placeholder="aaaa"
+                                               class="datepicker form-control input-sm"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="col-sm-3 col-md-3 col-lg-2 control-label">文本域 textarea</label>
+                            <div class="col-sm-9 col-md-9 col-lg-10">
+                                        <textarea rows="5"
+                                                  class="form-control"
+                                                  placeholder="adsfds"
+                                        ></textarea>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-xm">保 存</button>
+                            <button type="reset" class="btn btn-default btn-xm">重 置</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-
-            
         </div>
+    </div>
 
-<?php $this->display('block/footer.phtml', []);?>
+
+</div>
+
+<?php $this->display('block/footer.phtml', []); ?>
 
 

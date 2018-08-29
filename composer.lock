@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d55dd92b5d863adc9f1129d31ce634c",
+    "content-hash": "c8c80da0128be78d709dfdf0eaae1b6e",
     "packages": [
         {
             "name": "zh-five/brick",
@@ -47,26 +47,24 @@
         },
         {
             "name": "zh-five/fivedb",
-            "version": "0.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zh-five/fivedb.git",
-                "reference": "e77610ea52d38129284c5269b6e87fffaa47eadc"
+                "reference": "a00800e30d9765a3e363291d4e5d25a15d85d2d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zh-five/fivedb/zipball/e77610ea52d38129284c5269b6e87fffaa47eadc",
-                "reference": "e77610ea52d38129284c5269b6e87fffaa47eadc",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "url": "https://api.github.com/repos/zh-five/fivedb/zipball/a00800e30d9765a3e363291d4e5d25a15d85d2d3",
+                "reference": "a00800e30d9765a3e363291d4e5d25a15d85d2d3",
+                "shasum": ""
             },
             "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload": {
+                "psr-4": {
+                    "Five\\DB\\": "src/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -77,17 +75,24 @@
                 }
             ],
             "description": "一个基于pdo封装的数据库操作类, 支持mysql和sqlite",
-            "time": "2017-12-30T11:46:17+00:00"
+            "support": {
+                "source": "https://github.com/zh-five/fivedb/tree/master",
+                "issues": "https://github.com/zh-five/fivedb/issues"
+            },
+            "time": "2018-08-29T14:40:44+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "zh-five/brick": 20
+        "zh-five/brick": 20,
+        "zh-five/fivedb": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.4"
+    },
     "platform-dev": []
 }

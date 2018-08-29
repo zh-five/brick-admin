@@ -50,7 +50,7 @@
                 <?php foreach ($v['data'] as $item): ?>
                     <label class="<?php echo empty($item['disabled']) ? '' : 'disabled'; ?>">
                         <input type="radio"
-                               name="<?php echo $item['name']; ?>"
+                               name="<?php echo $v['name']; ?>"
                                value="<?php echo $item['value']; ?>"
                                <?php if (isset($form_data[$v['name']]) && $item['value'] == $form_data[$v['name']]): ?>checked<?php endif; ?>
                         /><?php echo $item['title']; ?></label>
@@ -65,7 +65,7 @@
                 <?php foreach ($v['data'] as $item): ?>
                     <label class="<?php echo empty($item['disabled']) ? '' : 'disabled'; ?>">
                         <input type="checkbox"
-                               name="<?php echo $item['name']; ?>"
+                               name="<?php echo $v['title']; ?>"
                                value="<?php echo $item['value']; ?>"
                                <?php if (isset($form_data[$v['name']]) && in_array($item['value'], $form_data[$v['name']])): ?>checked<?php endif; ?>
                         /><?php echo $item['title']; ?></label>
@@ -77,7 +77,7 @@
         <div class="form-group">
             <label class="col-sm-3 col-md-3 col-lg-2 control-label"><?php echo $v['title']; ?></label>
             <div class="col-sm-9 col-md-9 col-lg-10">
-                <select name="<?php echo $item['name']; ?>">
+                <select name="<?php echo $v['name']; ?>">
                     <?php foreach ($v['data'] as $item): ?>
                         <option value="<?php echo $item['value']; ?>"
                                 <?php if (isset($form_data[$v['name']]) && $item['value'] == $form_data[$v['name']]): ?>checked<?php endif; ?>

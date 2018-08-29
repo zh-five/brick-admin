@@ -11,13 +11,17 @@
     ],
     "require": {
         "zh-five\/brick": "dev-master",
-        "zh-five/fivedb": "^0.0.1",
+        "zh-five/fivedb": "dev-master",
         "php": ">=5.4"
     },
     "repositories": [
         {
             "type": "vcs",
             "url": "https:\/\/github.com\/zh-five\/brick"
+        },
+        {
+            "type": "vcs",
+            "url": "https:\/\/github.com\/zh-five\/fivedb"
         }
     ],
     "autoload": {
