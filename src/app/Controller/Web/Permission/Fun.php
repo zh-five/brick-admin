@@ -43,7 +43,7 @@ class Fun extends ControllerWeb {
             array(
                 'name'  => 'is_menu',
                 'type'  => 'radio',
-                'title' => '是否显示为菜单',
+                'title' => '是否为菜单',
                 'data'  => [
                     array('title' => '是', 'value' => 1),
                     array('title' => '否', 'value' => 0),
@@ -67,8 +67,13 @@ class Fun extends ControllerWeb {
 
         $this->display('public_tpl/form_page.phtml', [
             'form_url'    => 'aj_save',
-            'form_inputs' => $form_inputs,
+            'form_chunk'  => array_chunk($form_inputs, 3),
             'form_data'   => ['is_menu' => 1],
+            'col_class'   => [
+                'group' => 'col-xs-12 col-sm-4', //表单布局分几栏 1~4
+                'label' => 'col-sm-5 col-md-5 col-lg-4',
+                'input' => 'col-sm-7 col-md-7 col-lg-8',
+            ],
         ]);
     }
 

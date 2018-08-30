@@ -1,8 +1,10 @@
-<?php foreach ($form_inputs as $v): ?>
-    <?php if ($v['type'] == 'text'): ?>
-        <div class="form-group">
-            <label class="col-sm-3 col-md-3 col-lg-2 control-label"><?php echo $v['title']; ?></label>
-            <div class="col-sm-9 col-md-9 col-lg-10">
+<?php foreach ($form_chunk as $form_inputs): ?>
+<div class="row">
+	<?php foreach ($form_inputs as $k => $v): ?>
+		<?php if ($v['type'] == 'text'): ?>
+        <div class="form-group <?php echo isset($col_class['group']) ? $col_class['group'] : ''; ?>">
+            <label class="control-label <?php echo isset($col_class['label']) ? $col_class['label'] : 'col-sm-3 col-md-3 col-lg-2'; ?>"><?php echo $v['title']; ?></label>
+            <div class="<?php echo isset($col_class['input']) ? $col_class['input'] : 'col-sm-9 col-md-9 col-lg-10'; ?>">
                 <input class="form-control input-sm"
                        type="text"
                        name="<?php echo $v['name']; ?>"
@@ -13,15 +15,15 @@
             </div>
         </div>
 
-    <?php elseif ($v['type'] == 'hidden'): ?>
+		<?php elseif ($v['type'] == 'hidden'): ?>
         <input type="hidden"
                name="<?php echo $v['name']; ?>"
                value="<?php echo isset($form_data[$v['name']]) ? htmlspecialchars($form_data[$v['name']]) : ''; ?>"
         />
-    <?php elseif ($v['type'] == 'password'): ?>
-        <div class="form-group">
-            <label class="col-sm-3 col-md-3 col-lg-2 control-label"><?php echo $v['title']; ?></label>
-            <div class="col-sm-9 col-md-9 col-lg-10">
+		<?php elseif ($v['type'] == 'password'): ?>
+        <div class="form-group <?php echo isset($col_class['group']) ? $col_class['group'] : ''; ?>">
+            <label class="control-label <?php echo isset($col_class['label']) ? $col_class['label'] : 'col-sm-3 col-md-3 col-lg-2'; ?>"><?php echo $v['title']; ?></label>
+            <div class="<?php echo isset($col_class['input']) ? $col_class['input'] : 'col-sm-9 col-md-9 col-lg-10'; ?>">
                 <input class="form-control input-sm"
                        type="password"
                        name="<?php echo $v['name']; ?>"
@@ -31,10 +33,10 @@
                 />
             </div>
         </div>
-    <?php elseif ($v['type'] == 'textarea'): ?>
-        <div class="form-group">
-            <label class="col-sm-3 col-md-3 col-lg-2 control-label"><?php echo $v['title']; ?></label>
-            <div class="col-sm-9 col-md-9 col-lg-10">
+		<?php elseif ($v['type'] == 'textarea'): ?>
+        <div class="form-group <?php echo isset($col_class['group']) ? $col_class['group'] : ''; ?>">
+            <label class="control-label <?php echo isset($col_class['label']) ? $col_class['label'] : 'col-sm-3 col-md-3 col-lg-2'; ?>"><?php echo $v['title']; ?></label>
+            <div class="<?php echo isset($col_class['input']) ? $col_class['input'] : 'col-sm-9 col-md-9 col-lg-10'; ?>">
                 <textarea rows="5" class="form-control"
                           name="<?php echo $v['name']; ?>"
                           placeholder="<?php echo empty($v['note']) ? '' : htmlspecialchars($v['note']); ?>"
@@ -43,11 +45,11 @@
             </div>
         </div>
 
-    <?php elseif ($v['type'] == 'radio'): ?>
-        <div class="form-group">
-            <label class="col-sm-3 col-md-3 col-lg-2 control-label"><?php echo $v['title']; ?></label>
-            <div class="col-sm-9 col-md-9 col-lg-10">
-                <?php foreach ($v['data'] as $item): ?>
+		<?php elseif ($v['type'] == 'radio'): ?>
+        <div class="form-group <?php echo isset($col_class['group']) ? $col_class['group'] : ''; ?>">
+            <label class="control-label <?php echo isset($col_class['label']) ? $col_class['label'] : 'col-sm-3 col-md-3 col-lg-2'; ?>"><?php echo $v['title']; ?></label>
+            <div class="<?php echo isset($col_class['input']) ? $col_class['input'] : 'col-sm-9 col-md-9 col-lg-10'; ?>">
+			<?php foreach ($v['data'] as $item): ?>
                     <label class="<?php echo empty($item['disabled']) ? '' : 'disabled'; ?>">
                         <input type="radio"
                                name="<?php echo $v['name']; ?>"
@@ -55,14 +57,14 @@
                                <?php if (isset($form_data[$v['name']]) && $item['value'] == $form_data[$v['name']]): ?>checked<?php endif; ?>
                         /><?php echo $item['title']; ?></label>
 
-                <?php endforeach; ?>
+			<?php endforeach; ?>
             </div>
         </div>
-    <?php elseif ($v['type'] == 'checkbox'): ?>
-        <div class="form-group">
-            <label class="col-sm-3 col-md-3 col-lg-2 control-label"><?php echo $v['title']; ?></label>
-            <div class="col-sm-9 col-md-9 col-lg-10">
-                <?php foreach ($v['data'] as $item): ?>
+		<?php elseif ($v['type'] == 'checkbox'): ?>
+        <div class="form-group <?php echo isset($col_class['group']) ? $col_class['group'] : ''; ?>">
+            <label class="control-label <?php echo isset($col_class['label']) ? $col_class['label'] : 'col-sm-3 col-md-3 col-lg-2'; ?>"><?php echo $v['title']; ?></label>
+            <div class="<?php echo isset($col_class['input']) ? $col_class['input'] : 'col-sm-9 col-md-9 col-lg-10'; ?>">
+			<?php foreach ($v['data'] as $item): ?>
                     <label class="<?php echo empty($item['disabled']) ? '' : 'disabled'; ?>">
                         <input type="checkbox"
                                name="<?php echo $v['title']; ?>"
@@ -70,26 +72,26 @@
                                <?php if (isset($form_data[$v['name']]) && in_array($item['value'], $form_data[$v['name']])): ?>checked<?php endif; ?>
                         /><?php echo $item['title']; ?></label>
 
-                <?php endforeach; ?>
+			<?php endforeach; ?>
             </div>
         </div>
-    <?php elseif ($v['type'] == 'select'): ?>
-        <div class="form-group">
-            <label class="col-sm-3 col-md-3 col-lg-2 control-label"><?php echo $v['title']; ?></label>
-            <div class="col-sm-9 col-md-9 col-lg-10">
+		<?php elseif ($v['type'] == 'select'): ?>
+        <div class="form-group <?php echo isset($col_class['group']) ? $col_class['group'] : ''; ?>">
+            <label class="control-label <?php echo isset($col_class['label']) ? $col_class['label'] : 'col-sm-3 col-md-3 col-lg-2'; ?>"><?php echo $v['title']; ?></label>
+            <div class="<?php echo isset($col_class['input']) ? $col_class['input'] : 'col-sm-9 col-md-9 col-lg-10'; ?>">
                 <select name="<?php echo $v['name']; ?>">
-                    <?php foreach ($v['data'] as $item): ?>
+			<?php foreach ($v['data'] as $item): ?>
                         <option value="<?php echo $item['value']; ?>"
                                 <?php if (isset($form_data[$v['name']]) && $item['value'] == $form_data[$v['name']]): ?>checked<?php endif; ?>
                         ><?php echo $item['title']; ?></option>
 
-                    <?php endforeach; ?>
+			<?php endforeach; ?>
                 </select>
             </div>
         </div>
-    <?php elseif ($v['type'] == 'datepicker'): ?>
-        <div class="form-group">
-            <label class="col-sm-3 col-md-3 col-lg-2 control-label">Date picker</label>
+		<?php elseif ($v['type'] == 'datepicker'): ?>
+        <div class="form-group <?php echo isset($col_class['group']) ? $col_class['group'] : ''; ?>">
+            <label class="control-label <?php echo isset($col_class['label']) ? $col_class['label'] : 'col-sm-3 col-md-3 col-lg-2'; ?>">Date picker</label>
             <div class=" col-sm-9 col-md-9 col-lg-10">
                 <div class="row">
                     <div class="col-md-4">
@@ -97,7 +99,7 @@
                                type="text"
                                name="<?php echo $v['name']; ?>"
                                data-date-format="<?php echo $item['format']; ?>"
-                               data-date="<?php echo empty($item['default']) ? '' : $item['default']; ?>" 
+                               data-date="<?php echo empty($item['default']) ? '' : $item['default']; ?>"
                                value="<?php echo empty($item['default']) ? '' : $item['default']; ?>"
                                placeholder="<?php echo empty($v['note']) ? '' : htmlspecialchars($v['note']); ?>"
                         />
@@ -105,6 +107,7 @@
                 </div>
             </div>
         </div>
-    <?php endif; ?>
-
+		<?php endif; ?>
+	<?php endforeach; ?>
+</div>
 <?php endforeach; ?>
