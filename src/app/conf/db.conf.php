@@ -9,13 +9,14 @@
 return [
     //db_flag => db_info
     'admin' => [
-        'write_host' => '192.168.6.33',
+        //'write_host' => 'docker.for.mac.host.internal', //mac 下默认的宿主机地址
+        'write_host' => 'docker-host',
         'arr_read_host'  => [],
-        'database'   => 'test_admin',
+        'database'   => 'brick_admin',
         'username'   => 'root',
-        'password'   => '',
+        'password'   => 'xiaowu123',
         'charset'    => 'utf8',
-        'port'       => '3307',
+        'port'       => '3306',
     ],
 //    'shop_product' => [
 //        'write_host' => '192.168.6.33',

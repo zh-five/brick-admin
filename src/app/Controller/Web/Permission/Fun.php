@@ -14,16 +14,72 @@ use Five\Admin\Model\Table\Admin\AdminPFun;
 use Five\Admin\Package\ControllerWeb;
 
 class Fun extends ControllerWeb {
+    
+    
 
+    /**
+     * @throws \Brick\Core\Exceptions\ViewException
+     */
     function listAction() {
-        
+        $list = AdminPFun::getTopMenu();
+        array_unshift($list, array('title' => '顶级菜单', 'value' => 0));
+
+        $form_inputs = [
+            array(
+                'name'     => 'id',
+                'type'     => 'text',
+                'title'    => 'ID',
+                'note'     => '',
+                'readonly' => 0,
+            ),
+            array(
+                'name'     => 'name',
+                'type'     => 'text',
+                'title'    => '功能名称',
+                'note'     => '',
+                'readonly' => 0,
+            ),
+            array(
+                'name'  => 'fid',
+                'type'  => 'select',
+                'title' => '所属菜单',
+                'list'  => $list,
+            ),
+            array(
+                'name'  => 'is_menu',
+                'type'  => 'radio',
+                'title' => '是否为菜单',
+                'list'  => [
+                    array('title' => '是', 'value' => 1),
+                    array('title' => '否', 'value' => 0),
+                ],
+            ),
+            array(
+                'name'     => 'actions',
+                'type'     => 'text',
+                'title'    => '关键词',
+                'note'     => "",
+                'readonly' => 0,
+            ),
+        ];
+
+        $this->display('public_tpl/table_page.phtml', [
+            'form_url'    => 'aj_save',
+            'form_chunk'  => array_chunk($form_inputs, 3),
+            'form_data'   => ['is_menu' => 1],
+            'col_class'   => [
+                'group' => 'col-xs-12 col-sm-4', //表单布局分几栏 1~4
+                'label' => 'col-sm-5 col-md-5 col-lg-4',
+                'input' => 'col-sm-7 col-md-7 col-lg-8',
+            ],
+        ]);
     }
     
     /**
      * @throws \Brick\Core\Exceptions\ViewException
      */
     function addAction() {
-        $list = AdminPFun::getTopMenu();
+        $list = AdminPFun::getTopMenu(); var_dump($list);
         array_unshift($list, array('title' => '顶级菜单', 'value' => 0));
 
         $form_inputs = [
@@ -38,13 +94,13 @@ class Fun extends ControllerWeb {
                 'name'  => 'fid',
                 'type'  => 'select',
                 'title' => '所属菜单',
-                'data'  => $list,
+                'list'  => $list,
             ),
             array(
                 'name'  => 'is_menu',
                 'type'  => 'radio',
                 'title' => '是否为菜单',
-                'data'  => [
+                'list'  => [
                     array('title' => '是', 'value' => 1),
                     array('title' => '否', 'value' => 0),
                 ],
@@ -67,12 +123,12 @@ class Fun extends ControllerWeb {
 
         $this->display('public_tpl/form_page.phtml', [
             'form_url'    => 'aj_save',
-            'form_chunk'  => array_chunk($form_inputs, 3),
+            'form_chunk'  => array_chunk($form_inputs, 1),
             'form_data'   => ['is_menu' => 1],
             'col_class'   => [
-                'group' => 'col-xs-12 col-sm-4', //表单布局分几栏 1~4
-                'label' => 'col-sm-5 col-md-5 col-lg-4',
-                'input' => 'col-sm-7 col-md-7 col-lg-8',
+                'group' => 'col-xs-12 col-sm-12', //表单布局分几栏 1~4
+                'label' => 'col-sm-5 col-md-4 col-lg-3',
+                'input' => 'col-sm-7 col-md-8 col-lg-9',
             ],
         ]);
     }

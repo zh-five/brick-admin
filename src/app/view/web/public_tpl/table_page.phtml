@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php $this->display('block/head.phtml', $_arr_tpl_var); ?>
+</head>
+
+<?php $this->display('block/header.phtml', $_arr_tpl_var); ?>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            
+            <div class="widget-box collapsible">
+                <div class="widget-title">
+                    <a href="#collapseOne" data-toggle="collapse" class="collapsed">
+                        <span class="icon"><i class="fa fa-search"></i></span>
+                        <h5>查询条件</h5>
+                    </a>
+                </div>
+                <div class="collapse" id="collapseOne" style="height: 0px;">
+                    <div class="widget-content nopadding">
+                        <form action="<?php echo $form_url; ?>" onsubmit="return S.submit(this)" method="post"
+                              class="form-horizontal">
+                            <?php $this->display('block/input.phtml', $_arr_tpl_var); ?>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary btn-sm">搜 索</button>
+                                <button type="reset" class="btn btn-default btn-sm">重 置</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget-box">
+                <div class="widget-title">
+								<span class="icon">
+									<i class="fa fa-th"></i>
+								</span>
+                    <h5>Static table</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Column name</th>
+                            <th>Column name</th>
+                            <th>Column name</th>
+                            <th>Column name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Row 1</td>
+                            <td>Row 2</td>
+                            <td>Row 3</td>
+                            <td>Row 4</td>
+                        </tr>
+                        <tr>
+                            <td>Row 1</td>
+                            <td>Row 2</td>
+                            <td>Row 3</td>
+                            <td>Row 4</td>
+                        </tr>
+                        <tr>
+                            <td>Row 1</td>
+                            <td>Row 2</td>
+                            <td>Row 3</td>
+                            <td>Row 4</td>
+                        </tr>
+                        <tr>
+                            <td>Row 1</td>
+                            <td>Row 2</td>
+                            <td>Row 3</td>
+                            <td>Row 4</td>
+                        </tr>
+                        <tr>
+                            <td>Row 1</td>
+                            <td>Row 2</td>
+                            <td>Row 3</td>
+                            <td>Row 4</td>
+                        </tr>
+                        <tr>
+                            <td>Row 1</td>
+                            <td>Row 2</td>
+                            <td>Row 3</td>
+                            <td>Row 4</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    var S = {
+        submit: function (em) {
+            var fm = $(em);
+
+            $.post(fm.attr('action'), fm.serialize(), function (j) {
+                alert(j.msg);
+                if (j.code == 0 && typeof j.data == 'object' && typeof j.data.jump_url == 'string') {
+                    window.location.href = j.data.jump_url;
+                }
+            });
+
+            return false;
+        }
+    }
+</script>
+
+<?php $this->display('block/footer.phtml', []); ?>
+
+

@@ -15,9 +15,6 @@ class Demo extends ControllerWeb{
     public function testAction() {
         echo '<xmp>';
         
-        $obj = new AdminUser();
-        
-        $arr = $obj->getWhereList('*', [], [], []);
-        print_r($arr);
+        echo `pwd`;
     }
 }
