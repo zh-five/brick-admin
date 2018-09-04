@@ -8,19 +8,18 @@
 
 namespace Five\Admin\Controller\Web\Permission;
 
-
 use Brick\Core\Exceptions\Exception;
 use Five\Admin\Model\Table\Admin\AdminPFun;
 use Five\Admin\Package\ControllerWeb;
+use Five\DB\Util;
 
 class Fun extends ControllerWeb {
-    
-    
+
 
     /**
      * @throws \Brick\Core\Exceptions\ViewException
      */
-    function listAction() {
+    public function listAction() {
         $list = AdminPFun::getTopMenu();
         array_unshift($list, array('title' => '顶级菜单', 'value' => 0));
 
@@ -64,22 +63,70 @@ class Fun extends ControllerWeb {
         ];
 
         $this->display('public_tpl/table_page.phtml', [
-            'form_url'    => 'aj_save',
-            'form_chunk'  => array_chunk($form_inputs, 3),
-            'form_data'   => ['is_menu' => 1],
-            'col_class'   => [
+            'form_url'   => 'aj_list',
+            'form_chunk' => array_chunk($form_inputs, 3),
+            'form_data'  => ['is_menu' => 1],
+            'col_class'  => [
                 'group' => 'col-xs-12 col-sm-4', //表单布局分几栏 1~4
                 'label' => 'col-sm-5 col-md-5 col-lg-4',
                 'input' => 'col-sm-7 col-md-7 col-lg-8',
             ],
         ]);
     }
+
+    //请求列表数据
+    public function aj_listAction() {
+        list($arr_where, $format_arg) = $this->parseArgs();
+        $page_per = 30;
+        
+        $item_num = AdminPFun::getCount($arr_where);
+        $list = AdminPFun::getList($arr_where, floor($item_num/$page_per), $page_per);
+        $arr_th = $this->format($list);
+        
+        $html = $this->getHtml('block/table.phtml', [
+            'list' => $list,
+            'arr_th' => $arr_th,
+        ]);
+        
+        $this->outputJson(0, 'ok', $html);
+    }
     
+    protected function format(&$list) {
+        $arr_th = [
+            'id' => 'ID', //int(10) 主键
+            'fid' => '父级ID', //int(10) 父级id
+            'name' => '名称', //varchar(32) 名称
+            'note' => '备注', //varchar(100) 描述注解
+            'actions' => 'actions', //varchar(1000) 一行一个Action. 格式为: "class_name:action_name". class_name包含命名空间, action_name不包含"Action"后缀
+            'is_menu' => '菜单', //tinyint(4) 是否为菜单：0否，1是
+        ];
+        
+        return $arr_th;
+    }
+    
+    protected function parseArgs() {
+        $arr_conf = [
+            'id' => ['id', '='],
+            'name' => ['name', 'like', function($str){
+                $str = trim($str);
+                return "%{$str}%";
+            }],
+            'actions' => ['actions', 'like', function($str){
+                $str = trim($str);
+                return "%{$str}%";
+            }],
+            'fid' => ['fid', '='],
+            'is_menu' => ['is_menu', '='],
+        ];
+        
+        return Util::arg2SqlWhere($_GET, $arr_conf); 
+    }
+
     /**
      * @throws \Brick\Core\Exceptions\ViewException
      */
-    function addAction() {
-        $list = AdminPFun::getTopMenu(); var_dump($list);
+    public function addAction() {
+        $list = AdminPFun::getTopMenu();
         array_unshift($list, array('title' => '顶级菜单', 'value' => 0));
 
         $form_inputs = [
@@ -122,10 +169,10 @@ class Fun extends ControllerWeb {
         ];
 
         $this->display('public_tpl/form_page.phtml', [
-            'form_url'    => 'aj_save',
-            'form_chunk'  => array_chunk($form_inputs, 1),
-            'form_data'   => ['is_menu' => 1],
-            'col_class'   => [
+            'form_url'   => 'aj_save',
+            'form_chunk' => array_chunk($form_inputs, 1),
+            'form_data'  => ['is_menu' => 1],
+            'col_class'  => [
                 'group' => 'col-xs-12 col-sm-12', //表单布局分几栏 1~4
                 'label' => 'col-sm-5 col-md-4 col-lg-3',
                 'input' => 'col-sm-7 col-md-8 col-lg-9',
@@ -136,8 +183,8 @@ class Fun extends ControllerWeb {
     /**
      * @throws \Brick\Core\Exceptions\Exception
      */
-    function aj_saveAction() {
-        $id = $this->getParam('POST', 'id', 0);
+    public function aj_saveAction() {
+        $id   = $this->getParam('POST', 'id', 0);
         $data = [
             'fid'     => $this->getParam('POST', 'fid', 0),
             'name'    => $this->getParam('POST', 'name', ''),
@@ -176,7 +223,7 @@ class Fun extends ControllerWeb {
                 throw new Exception('新增失败', 2);
             }
         }
-        
+
         $this->outputJson(0, 'ok', ['jump_url1' => 'list']);
     }
 }

@@ -80,7 +80,7 @@
         <div class="<?php echo isset($col_class['group']) ? $col_class['group'] : ''; ?>">
             <label class="control-label <?php echo isset($col_class['label']) ? $col_class['label'] : 'col-sm-3 col-md-3 col-lg-2'; ?>"><?php echo $v['title']; ?></label>
             <div class="<?php echo isset($col_class['input']) ? $col_class['input'] : 'col-sm-9 col-md-9 col-lg-10'; ?>">
-                <select name="<?php echo $v['name']; ?>">
+                <select name="<?php echo $v['name']; ?>" class="form-control">
 			<?php foreach ($v['list'] as $item): ?>
                         <option value="<?php echo $item['value']; ?>"
                                 <?php if (isset($form_data[$v['name']]) && $item['value'] == $form_data[$v['name']]): ?>checked<?php endif; ?>

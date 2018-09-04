@@ -1,0 +1,35 @@
+<div class="widget-box">
+    <div class="widget-title">
+        <span class="icon">
+            <i class="fa fa-th"></i>
+        </span>
+        <h5>表格</h5>
+    </div>
+    <div class="widget-content nopadding">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+            <tr>
+<?php foreach($arr_th as $th):?>
+                    <th><?php echo htmlspecialchars($th);?></th>
+<?php endforeach;?>
+<?php if(!empty($op_callback)):?>
+                    <th>操作</th>
+<?php endif;?>
+            </tr>
+            </thead>
+            <tbody>
+<?php foreach($list as $row):?>
+                <tr>
+	<?php foreach($arr_th as $k => $th):?>
+                        <td><?php echo isset($row[$k])? htmlspecialchars($row[$k]): '';?></td>
+	<?php endforeach;?>
+	<?php if(!empty($op_callback)):?>
+                        <th><?php $op_callback($row);?></th>
+	<?php endif;?>
+                </tr>
+<?php endforeach;?>
+
+            </tbody>
+        </table>
+    </div>
+</div>

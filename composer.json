@@ -17,11 +17,11 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https:\/\/github.com\/zh-five\/brick"
+            "url": "file:///Users/xw/git/github/zh-five/brick"
         },
         {
             "type": "vcs",
-            "url": "https:\/\/github.com\/zh-five\/fivedb"
+            "url": "file:///Users/xw/git/github/zh-five/fivedb"
         }
     ],
     "autoload": {

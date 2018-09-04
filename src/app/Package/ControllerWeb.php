@@ -27,4 +27,13 @@ class ControllerWeb extends Controller {
         View::getInstance()->display($tpl_file, $arr_tpl_var);
     }
     
+    protected function getHtml($tpl_file, $arr_tpl_var) {
+        ob_start();
+        View::getInstance()->display($tpl_file, $arr_tpl_var);
+        $html = ob_get_contents();
+        ob_clean();
+        
+        return $html;
+    }
+    
 }
